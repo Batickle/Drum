@@ -16,7 +16,7 @@ for (var i = 0; i < 7; i++) {
   document.querySelectorAll(".drum")[i].addEventListener("click", function() {
     var buttonInnerHTML = this.innerHTML;
     makeSound(buttonInnerHTML); //here the Inner Html which is ("w","s","a","d","j","j","l","k") is passing as a argument in makeSound funtion ..........Go down
-      buttonAnimation(buttonInnerHTML); // for animation passing Inner Html which is ("w","s","a","d","j","j","l","k")
+    buttonAnimation(buttonInnerHTML); // for animation passing Inner Html which is ("w","s","a","d","j","j","l","k")
   });
 
 
