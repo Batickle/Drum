@@ -16,7 +16,7 @@ for (var i = 0; i < 7; i++) {
   document.querySelectorAll(".drum")[i].addEventListener("click", function() {
     var buttonInnerHTML = this.innerHTML;
     makeSound(buttonInnerHTML); //here the Inner Html which is ("w","s","a","d","j","j","l","k") is passing as a argument in makeSound funtion ..........Go down
-
+      buttonAnimation(buttonInnerHTML); // for animation passing Inner Html which is ("w","s","a","d","j","j","l","k")
   });
 
 
@@ -68,6 +68,7 @@ for (var i = 0; i < 7; i++) {
 // Detecting Kyeboard Press
 document.addEventListener("keydown", function(event){
   makeSound(event.code); //here the code of the keypresses (which is "KeyA","KeyD","KeyS","KeyW","KeyK",....) si passing as an argument in makeSound funtion....Go Down
+  buttonAnimation(event.code); //for animation passing keypresses (which is "KeyA","KeyD","KeyS","KeyW","KeyK",....)
 });
 function makeSound(key){
 
@@ -118,4 +119,15 @@ function makeSound(key){
     default:
       console.log(button.code);
   }
+}
+function buttonAnimation(currentKey){
+  var activeButton = document.querySelector("."+currentKey);
+  activeButton.classList.add("pressed"); // Now by adding this pressed class its staying there forever its like giving
+                                                                  // animation of getting clikced forever unless we refresh so we need a timeout so that
+                                                                  // the pressed class can remove after some time and then when we click or press W, S, a etc
+                                                                  // then the press class added again
+    //=============================================Here we need setTimeout() funtion ====================================================================
+    setTimeout(function(){
+      activeButton.classList.remove("pressed");
+    },100);
 }
